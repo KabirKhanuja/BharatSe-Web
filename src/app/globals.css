@@ -1,0 +1,176 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+  --font-heading: var(--font-plex-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* BharatSe palette.
+   These are the same values as AppColors in the Flutter app, so the ministry
+   dashboard and the artisan app read as one product. Change them in both or
+   in neither. */
+:root {
+  --radius: 0.625rem;
+
+  --background: #FAF6F0;   /* cream */
+  --foreground: #1E1B16;   /* ink */
+
+  --card: #FFFFFF;
+  --card-foreground: #1E1B16;
+  --popover: #FFFFFF;
+  --popover-foreground: #1E1B16;
+
+  --primary: #16324F;      /* navy */
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #F3EDE4;    /* creamAlt */
+  --secondary-foreground: #1E1B16;
+
+  --muted: #F3EDE4;
+  --muted-foreground: #6E665A;   /* inkMuted */
+
+  --accent: #F4E2D8;
+  --accent-foreground: #5C2612;
+
+  --destructive: #8F1D24;  /* maroon */
+
+  --border: #E7E0D5;       /* line */
+  --input: #E7E0D5;
+  --ring: #B4522C;         /* terracotta */
+
+  /* Charts read left to right as: primary series, comparison, target,
+     positive, and a neutral remainder. */
+  --chart-1: #B4522C;
+  --chart-2: #16324F;
+  --chart-3: #C6A24C;
+  --chart-4: #2E6B4F;
+  --chart-5: #9A9182;
+
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1E1B16;
+  --sidebar-primary: #16324F;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F4E2D8;
+  --sidebar-accent-foreground: #5C2612;
+  --sidebar-border: #E7E0D5;
+  --sidebar-ring: #B4522C;
+
+  /* Brand tokens used directly where a semantic slot would be misleading. */
+  --brand-navy: #16324F;
+  --brand-terracotta: #B4522C;
+  --brand-maroon: #8F1D24;
+  --brand-gold: #C6A24C;
+  --brand-success: #2E6B4F;
+  --brand-ink-faint: #9A9182;
+}
+
+.dark {
+  --background: #14120F;
+  --foreground: #F3EDE4;
+
+  --card: #1C1A16;
+  --card-foreground: #F3EDE4;
+  --popover: #1C1A16;
+  --popover-foreground: #F3EDE4;
+
+  --primary: #A8C2DC;
+  --primary-foreground: #0F2439;
+
+  --secondary: #262219;
+  --secondary-foreground: #F3EDE4;
+
+  --muted: #262219;
+  --muted-foreground: #A79C8B;
+
+  --accent: #3A281F;
+  --accent-foreground: #F4E2D8;
+
+  --destructive: #D4646B;
+
+  --border: rgba(243, 237, 228, 0.12);
+  --input: rgba(243, 237, 228, 0.16);
+  --ring: #D08055;
+
+  --chart-1: #D08055;
+  --chart-2: #A8C2DC;
+  --chart-3: #DCC077;
+  --chart-4: #6FA98A;
+  --chart-5: #7C7466;
+
+  --sidebar: #1C1A16;
+  --sidebar-foreground: #F3EDE4;
+  --sidebar-primary: #A8C2DC;
+  --sidebar-primary-foreground: #0F2439;
+  --sidebar-accent: #3A281F;
+  --sidebar-accent-foreground: #F4E2D8;
+  --sidebar-border: rgba(243, 237, 228, 0.12);
+  --sidebar-ring: #D08055;
+
+  --brand-navy: #A8C2DC;
+  --brand-terracotta: #D08055;
+  --brand-maroon: #D4646B;
+  --brand-gold: #DCC077;
+  --brand-success: #6FA98A;
+  --brand-ink-faint: #7C7466;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  /* Figures line up in columns. Without this, a table of rupee amounts
+     wobbles as the digits change. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+}

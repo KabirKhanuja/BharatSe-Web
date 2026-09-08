@@ -1,4 +1,6 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL || "https://bharatse-api.onrender.com/api/v1";
 
 export interface PendingArtisan {
   id: string;
@@ -91,17 +93,18 @@ export async function fetchArtisanDetail(id: string): Promise<ArtisanDetail> {
 }
 
 export async function approveArtisan(id: string): Promise<boolean> {
+  // Reports what actually happened. An approval that failed and claimed
+  // success leaves an artisan unverified while the officer believes they are
+  // cleared, and nothing downstream ever catches it.
   try {
     const res = await fetch(`${API_BASE_URL}/ministry/verification/${id}/approve`, {
       method: "POST",
     });
-    if (res.ok) {
-      return true;
-    }
+    return res.ok;
   } catch (err) {
     console.warn("API approve error", err);
+    return false;
   }
-  return true;
 }
 
 export async function requestMoreInfo(id: string, reason: string): Promise<boolean> {
@@ -111,11 +114,9 @@ export async function requestMoreInfo(id: string, reason: string): Promise<boole
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ reason }),
     });
-    if (res.ok) {
-      return true;
-    }
+    return res.ok;
   } catch (err) {
     console.warn("API requestMoreInfo error", err);
+    return false;
   }
-  return true;
 }
